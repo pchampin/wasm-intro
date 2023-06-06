@@ -1,4 +1,4 @@
-include ../Makefile
+include ../common.mk
 
 .PHONY: all
 all: ex4.wasm

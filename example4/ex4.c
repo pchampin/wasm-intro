@@ -25,11 +25,11 @@ int get_image_height(void) {
 
 WASM_EXPORT
 int get_image_size(void) {
-  return HEIGHT*WIDTH*4;
+  return sizeof(IMAGE);
 }
 
 WASM_EXPORT
-// Génère une image dans IMAGE
+// Génère un dégradé dans IMAGE
 void fill(void) {
   for (int y=0; y<HEIGHT; y++) {
     for (int x=0; x<WIDTH; x++) {

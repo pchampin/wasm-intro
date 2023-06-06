@@ -30,8 +30,8 @@ async function main() {
   c.height = get_image_height();
 
   // affiche le contenu du buffer image dans le canvas
-  let ctx = c.getContext('2d');
   imageData = new ImageData(image, c.width, c.height);
+  let ctx = c.getContext('2d');
   ctx.putImageData(imageData, 0, 0);
 }
 

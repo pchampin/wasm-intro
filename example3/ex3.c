@@ -1,7 +1,7 @@
 #define WASM_EXPORT __attribute__((visibility("default")))
 
-int SIZE = 256;
-char BUF_STR[256];
+#define SIZE 256
+char BUF_STR[SIZE];
 
 WASM_EXPORT
 char* get_buf_str_address(void) {
@@ -11,7 +11,7 @@ char* get_buf_str_address(void) {
 
 WASM_EXPORT
 int get_buf_str_size(void) {
-  return SIZE;
+  return sizeof(BUF_STR);
 }
 
 // met le contenu de BUF_STR en majuscules

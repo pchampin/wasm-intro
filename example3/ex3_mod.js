@@ -1,11 +1,16 @@
-// jshint module: true
+// jshint module:true
 
-// NB: le 'await' ci-dessous n'est pas reconnu par jshint, mais il est correct
-let result = await WebAssembly.instantiateStreaming(
-  fetch('./ex3.wasm'),
-  {},
-);
-let {memory, get_buf_str_address, get_buf_str_size, upper} = result.instance.exports;
+let result = await // jshint ignore: line
+             WebAssembly.instantiateStreaming(
+                 fetch('./ex3.wasm'),
+                 {},
+             );
+let {
+  memory,
+  get_buf_str_address,
+  get_buf_str_size,
+  upper,
+} = result.instance.exports;
 
 let buf_str = new Uint8Array(
   memory.buffer,

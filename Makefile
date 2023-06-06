@@ -1,13 +1,17 @@
+EXAMPLES=$(shell ls -d example*)
+
+.PHONY: all
+all:
+	for i in $(EXAMPLES); do make -C "$$i"; done
+
+.PHONY: clean-all
+clean-all:
+	for i in $(EXAMPLES); do make clean -C "$$i"; done
+
 .PHONY: check
 check:
 	jshint -c jshint-config.json */*.js
 
-%.wasm: %.c
-	clang "$<" -o "$@" \
-	    -Wpedantic \
-	    --target=wasm32 \
-	    -nostdlib \
-	    -Xlinker --no-entry \
-	    -Xlinker --export-dynamic \
-	    -Xlinker --import-undefined
-
+.PHONY: serve
+serve:
+	python3 -m http.server
