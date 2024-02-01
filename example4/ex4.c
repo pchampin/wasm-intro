@@ -14,6 +14,11 @@ void* get_image_address(void) {
 }
 
 WASM_EXPORT
+int get_image_size(void) {
+  return sizeof(IMAGE);
+}
+
+WASM_EXPORT
 int get_image_width(void) {
   return WIDTH;
 }
@@ -21,11 +26,6 @@ int get_image_width(void) {
 WASM_EXPORT
 int get_image_height(void) {
   return HEIGHT;
-}
-
-WASM_EXPORT
-int get_image_size(void) {
-  return sizeof(IMAGE);
 }
 
 WASM_EXPORT

@@ -4,31 +4,31 @@ async function main() {
     {},
   );
   let {
-    memory,
-    get_buf_str_address,
-    get_buf_str_size,
+    get_sb_address,
+    get_sb_size,
     upper,
+    memory, // exporté implicitement
   } = result.instance.exports;
 
-  let buf_str = new Uint8Array(
+  let string_buffer = new Uint8Array(
     memory.buffer,
-    get_buf_str_address(),
-    get_buf_str_size(),
+    get_sb_address(),
+    get_sb_size(),
   );
 
   function toUpper(txt) {
-    // transfère txt dans le buffer, caractère par caractère
+    // transfère txt dans le string_buffer, caractère par caractère
     for (let i=0; i<txt.length; i++) {
-      buf_str[i] = txt.charCodeAt(i);
+      string_buffer[i] = txt.charCodeAt(i);
     }
 
-    // appelle la fonction WebAssembly pour passer buffer en majuscules
+    // appelle la fonction WebAssembly pour passer string_buffer en majuscules
     upper(txt.length);
 
-    // extrait et affiche les caractères du buffer
+    // extrait et affiche les caractères du string_buffer
     let ret = "";
     for (let i=0; i<txt.length; i++) {
-      ret += String.fromCharCode(buf_str[i]);
+      ret += String.fromCharCode(string_buffer[i]);
     }
     return ret;
   }

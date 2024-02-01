@@ -2,7 +2,7 @@ EXAMPLES=$(shell ls -d example*)
 
 .PHONY: all
 all:
-	for i in $(EXAMPLES); do make -C "$$i"; done
+	set -e; for i in $(EXAMPLES); do make -C "$$i"; done
 
 .PHONY: clean-all
 clean-all:

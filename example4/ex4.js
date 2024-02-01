@@ -14,23 +14,25 @@ async function main() {
       fill,
   } = result.instance.exports;
 
-  // génère le contenu de l'image
-  fill();
-
   // récupère le buffer image pour Javascript
-  let image = new Uint8ClampedArray(
+  let width = get_image_width();
+  let height = get_image_height();
+  let linear = new Uint8ClampedArray(
     memory.buffer,
     get_image_address(),
     get_image_size(),
   );
+  let imageData = new ImageData(linear, width, height);
 
   // adapte la taille du canvas
   let c = document.querySelector("canvas");
-  c.width = get_image_width();
-  c.height = get_image_height();
+  c.width = width;
+  c.height = height;
+
+  // génère le contenu de l'image
+  fill();
 
   // affiche le contenu du buffer image dans le canvas
-  imageData = new ImageData(image, c.width, c.height);
   let ctx = c.getContext('2d');
   ctx.putImageData(imageData, 0, 0);
 }
