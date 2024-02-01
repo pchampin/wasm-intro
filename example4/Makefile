@@ -1,7 +1,7 @@
 include ../common.mk
 
-.PHONY: all
-all: ex4.wasm
+.PHONY: compile
+compile: ex4.wasm
 
 .PHONY: clean
 clean:
