@@ -10,7 +10,8 @@ clean-all:
 
 .PHONY: check-js
 check-js:
-	jshint -c jshint-config.json */*.js
+	if which -s jshint; then jshint -c jshint-config.json */*.js; fi
+
 
 .PHONY: serve
 serve: compile-all check-js

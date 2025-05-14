@@ -16,5 +16,6 @@ ainsi qu'un `Makefile` permettant de compiler et tester le résultat:
 
 Le `Makefile` suppose que les outils `clang`, `lld` et `python3` sont disponibles:
 
-* sous Ubuntu: `apt install clang lld python3`
+* sous Ubuntu: `sudo apt install clang lld python3`
+  et optionnellement: `npm install -g jshint`
 
