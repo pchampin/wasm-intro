@@ -8,7 +8,7 @@ async function main() {
     {
       // ... en lui passant l'implémentations des fonctions 'extern'
       env: {
-        "print_int": (i) => { c.innerText += "* " + i + "\n"; },
+        print_int: (i) => { c.innerText += "* " + i + "\n"; },
       }
     },
   );

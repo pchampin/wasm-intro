@@ -4,16 +4,16 @@ async function main() {
     {},
   );
   let {
-    get_sb_address,
-    get_sb_size,
+    get_buffer_address,
+    get_buffer_size,
     upper,
     memory, // exporté implicitement
   } = result.instance.exports;
 
   let string_buffer = new Uint8Array(
     memory.buffer,
-    get_sb_address(),
-    get_sb_size(),
+    get_buffer_address(),
+    get_buffer_size(),
   );
 
   function toUpper(txt) {

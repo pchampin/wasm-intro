@@ -4,13 +4,13 @@
 char BUFFER[SIZE];
 
 WASM_EXPORT
-char* get_sb_address(void) {
+char* get_buffer_address(void) {
   return &BUFFER[0];
   // NB: les pointeurs sont vus par WASM/Javascript comme des entiers
 }
 
 WASM_EXPORT
-int get_sb_size(void) {
+int get_buffer_size(void) {
   return sizeof(BUFFER);
 }
 

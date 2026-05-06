@@ -33,9 +33,9 @@ WASM_EXPORT
 void fill(void) {
   for (int y=0; y<HEIGHT; y++) {
     for (int x=0; x<WIDTH; x++) {
-      IMAGE[y][x][R] = x % 256;
-      IMAGE[y][x][G] = x % 256;
-      IMAGE[y][x][B] = x % 256;
+      IMAGE[y][x][R] = x * 255 / WIDTH;
+      IMAGE[y][x][G] = x * 255 / WIDTH;
+      IMAGE[y][x][B] = x * 255 / WIDTH;
       IMAGE[y][x][A] = 255;
     }
   }
